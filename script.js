@@ -10,14 +10,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
       // Update the table with links for the corresponding section
       updateTable(sectionName);
+
+      // Update the section heading
+      document.getElementById("section-heading").textContent = sectionName;
     });
   });
 
   function updateTable(sectionName) {
-    const table = document.querySelector("#main-content table tbody");
+    const table2022 = document.getElementById("link2022");
+    const table2023 = document.getElementById("link2023");
 
     // Clear previous content
-    table.innerHTML = "";
+    table2022.textContent = "";
+    table2023.textContent = "";
 
     // Dummy data for now, replace with actual links
     const links2022 = ["Link 1", "Link 2", "Link 3"]; // Example links for 2022
@@ -25,16 +30,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Populate table with links for both years
     for (let i = 0; i < links2022.length || i < links2023.length; i++) {
-      const row = document.createElement("tr");
-      const cell2022 = document.createElement("td");
-      const cell2023 = document.createElement("td");
-
       // Add links for 2022
       if (i < links2022.length) {
         const link2022 = document.createElement("a");
         link2022.href = links2022[i];
         link2022.textContent = links2022[i];
-        cell2022.appendChild(link2022);
+        table2022.appendChild(link2022);
+        table2022.appendChild(document.createElement("br")); // Add line break after each link
       }
 
       // Add links for 2023
@@ -42,15 +44,9 @@ document.addEventListener("DOMContentLoaded", function() {
         const link2023 = document.createElement("a");
         link2023.href = links2023[i];
         link2023.textContent = links2023[i];
-        cell2023.appendChild(link2023);
+        table2023.appendChild(link2023);
+        table2023.appendChild(document.createElement("br")); // Add line break after each link
       }
-
-      // Append cells to row
-      row.appendChild(cell2022);
-      row.appendChild(cell2023);
-
-      // Append row to table
-      table.appendChild(row);
     }
   }
 });
