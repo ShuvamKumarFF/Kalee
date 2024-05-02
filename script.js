@@ -17,6 +17,13 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     function updateTable(sectionName) {
+        const table2022 = document.getElementById("link2022");
+        const table2023 = document.getElementById("link2023");
+
+        // Clear previous content
+        table2022.textContent = "";
+        table2023.textContent = "";
+
         // Dummy data for now, replace with actual links and their corresponding text
         let links2022 = [];
         let text2022 = [];
@@ -41,15 +48,18 @@ document.addEventListener("DOMContentLoaded", function() {
         // Add conditions for other sections...
 
         // Populate table with links and text for both years
-        populateTable("link2022", text2022);
-        populateTable("link2023", text2023);
+        populateTable(table2022, links2022, text2022);
+        populateTable(table2023, links2023, text2023);
     }
 
-    function populateTable(tableId, text) {
-        // Populate table cells with text for the specified section
-        const cells = document.querySelectorAll(`#${tableId} td`);
-        text.forEach((textContent, index) => {
-            cells[index].textContent = textContent;
-        });
+    function populateTable(table, links, text) {
+        // Populate table with links and text for both years
+        for (let i = 0; i < links.length; i++) {
+            const row = document.createElement("tr");
+            const cell = document.createElement("td");
+            cell.textContent = text[i];
+            row.appendChild(cell);
+            table.appendChild(row);
+        }
     }
 });
