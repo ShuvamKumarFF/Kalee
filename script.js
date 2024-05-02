@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (i < links2022.length) {
                 const link2022 = document.createElement("a");
                 link2022.href = links2022[i];
-                link2022.textContent = ltext1[i];
+                link2022.textContent = text1[i];
                 table2022.appendChild(link2022);
                 table2022.appendChild(document.createElement("br")); // Add line break after each link
             }
