@@ -11,6 +11,10 @@ header {
   text-align: center;
 }
 
+h1 {
+  margin: 0;
+}
+
 nav {
   background-color: #444;
   padding: 10px;
@@ -42,6 +46,12 @@ nav ul li a:hover {
 #main-content {
   padding: 20px;
   text-align: center;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 24px;
+  color: #333;
 }
 
 table {
