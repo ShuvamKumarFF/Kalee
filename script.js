@@ -34,8 +34,8 @@ document.addEventListener("DOMContentLoaded", function() {
         if (sectionName === "English") {
             links2022 = ["English Link 1", "English Link 2", "English Link 3"];
             links2023 = ["English Link 4", "English Link 5", "English Link 6"];
-            text1 = [];
-            text2 = [];
+            text1 = ["English Link 1", "English Link 2", "English Link 3"];
+            text2 = ["English Link 4", "English Link 5", "English Link 6"];
         } else if (sectionName === "General Test") {
             links2022 = ["gt link 1", "General Test Link 2", "General Test Link 3"];
             links2023 = ["https://cdn.shopify.com/s/files/1/0572/7299/1924/files/CUET_UG_2023_-_GT_Paper_-_24th_May_2023.pdf?v=1698238388", "General Test Link 5", "General Test Link 6"];
