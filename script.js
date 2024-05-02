@@ -24,60 +24,47 @@ document.addEventListener("DOMContentLoaded", function() {
         table2022.textContent = "";
         table2023.textContent = "";
 
-        // Dummy data for now, replace with actual links
+        // Dummy data for now, replace with actual links and their corresponding text
         let links2022 = [];
+        let linksText2022 = [];
         let links2023 = [];
-        let text1 = [];
-        let text2 = [];
+        let linksText2023 = [];
 
-        // Populate links based on section
+        // Populate links and their text based on section
         if (sectionName === "English") {
-            links2022 = ["English Link 1", "English Link 2", "English Link 3"];
-            links2023 = ["English Link 4", "English Link 5", "English Link 6"];
-            text1 = ["English Link 1", "English Link 2", "English Link 3"];
-            text2 = ["English Link 4", "English Link 5", "English Link 6"];
+            links2022 = ["https://example.com/english/1", "https://example.com/english/2", "https://example.com/english/3"];
+            linksText2022 = ["English Topic 1", "English Topic 2", "English Topic 3"];
+            links2023 = ["https://example.com/english/4", "https://example.com/english/5", "https://example.com/english/6"];
+            linksText2023 = ["English Topic 4", "English Topic 5", "English Topic 6"];
         } else if (sectionName === "General Test") {
-            links2022 = ["gt link 1", "General Test Link 2", "General Test Link 3"];
-            links2023 = ["https://cdn.shopify.com/s/files/1/0572/7299/1924/files/CUET_UG_2023_-_GT_Paper_-_24th_May_2023.pdf?v=1698238388", "General Test Link 5", "General Test Link 6"];
-            text1 = [GT 1,GT 2,GT 3];
-            text2 = [24th May,GT 5,GT 6];
+            // Populate links and their text for General Test section...
         } else if (sectionName === "Geography") {
-            links2022 = ["Geography Link 1", "Geography Link 2", "Geography Link 3"];
-            links2023 = ["Geography Link 4", "Geography Link 5", "Geography Link 6"];
-            text1 = ["Geography Link 1", "Geography Link 2", "Geography Link 3"];
-            text2 = ["Geography Link 4", "Geography Link 5", "Geography Link 6"];
+            // Populate links and their text for Geography section...
         } else if (sectionName === "Fine Arts") {
-            links2022 = ["Fine Arts Link 1", "Fine Arts Link 2", "Fine Arts Link 3"];
-            links2023 = ["Fine Arts Link 4", "Fine Arts Link 5", "Fine Arts Link 6"];
-            text1 = ["Fine Arts Link 1", "Fine Arts Link 2", "Fine Arts Link 3"];
-            text2 = ["Fine Arts Link 4", "Fine Arts Link 5", "Fine Arts Link 6"];
+            // Populate links and their text for Fine Arts section...
         } else if (sectionName === "EVS") {
-            links2022 = ["EVS Link 1", "EVS Link 2", "EVS Link 3"];
-            links2023 = ["EVS Link 4", "EVS Link 5", "EVS Link 6"];
-            text1 = ["EVS Link 1", "EVS Link 2", "EVS Link 3"];
-            text2 = ["EVS Link 4", "EVS Link 5", "EVS Link 6"];
+            // Populate links and their text for EVS section...
         }
         // Add conditions for other sections...
 
-        // Populate table with links for both years
-        for (let i = 0; i < links2022.length || i < links2023.length; i++) {
-            // Add links for 2022
-            if (i < links2022.length) {
-                const link2022 = document.createElement("a");
-                link2022.href = links2022[i];
-                link2022.textContent = text1[i];
-                table2022.appendChild(link2022);
-                table2022.appendChild(document.createElement("br")); // Add line break after each link
-            }
+        // Populate table with links and their text for both years
+        populateTable(table2022, links2022, linksText2022);
+        populateTable(table2023, links2023, linksText2023);
+    }
 
-            // Add links for 2023
-            if (i < links2023.length) {
-                const link2023 = document.createElement("a");
-                link2023.href = links2023[i];
-                link2023.textContent = text2[i];
-                table2023.appendChild(link2023);
-                table2023.appendChild(document.createElement("br")); // Add line break after each link
-            }
+    function populateTable(table, links, linksText) {
+        // Populate table with links and their text for both years
+        for (let i = 0; i < links.length; i++) {
+            const row = document.createElement("tr");
+            const cellLink = document.createElement("td");
+            const cellText = document.createElement("td");
+            const link = document.createElement("a");
+            link.href = links[i];
+            link.textContent = linksText[i];
+            cellLink.appendChild(link);
+            row.appendChild(cellLink);
+            row.appendChild(cellText);
+            table.appendChild(row);
         }
     }
 });
